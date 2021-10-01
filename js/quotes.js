@@ -42,3 +42,12 @@ const quotes = [
     author: "알버트 아인슈타인"
   }
 ];
+
+const quote = document.querySelector("#quote span:first-child");
+const author = document.querySelector("#quote span:last-child");
+
+const todayQuote = quotes[Math.floor(Math.random() * quotes.length)];
+quote.innerText = todayQuote.quote;
+author.innerText = todayQuote.author;
+
+// setInterval(seconds, 500);
