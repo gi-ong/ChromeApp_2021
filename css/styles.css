@@ -8,6 +8,127 @@
 }
 
 body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   width: auto;
   height: 100vh;
+}
+li,
+ul {
+  list-style: none;
+}
+
+.container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  min-height: 400px;
+  width: 90vw;
+  max-width: 550px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#clock {
+  font-size: 40px;
+  padding: 15px 0;
+}
+#weather {
+  height: 20px;
+  margin-bottom: 10px;
+}
+
+input {
+  border: none;
+  border-right: 0px;
+  border-top: 0px;
+  border-left: 0px;
+  border-bottom: 0px;
+  padding: 4px 6px;
+  border-radius: 5px;
+}
+
+#login-form input:last-child {
+  background-color: rgba(255, 255, 255, 0.5);
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+#greeting,
+#login-form {
+  height: 50px;
+}
+
+.clear-btn {
+  display: center;
+  justify-content: center;
+  /* position: absolute; */
+  /* right: -50px; */
+  /* top: 14px; */
+  max-width: 100px;
+  height: 20px;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 0 5px;
+  background-color: rgba(0, 0, 0, 0.3);
+  font-size: 12px;
+  line-height: 20px;
+  transition: all 0.5s ease-in-out;
+}
+.clear-btn:hover {
+  cursor: pointer;
+  color: black;
+  background-color: white;
+}
+
+#quote {
+  /* position: absolute; */
+  bottom: 2vh;
+  padding: 0 10vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+#quote {
+  margin: 15px 0 10px 0;
+}
+#quote span:last-child {
+  margin-top: 5px;
+}
+
+#todo-form {
+  margin: 20px 0 10px 0;
+}
+#todo-list li {
+  position: relative;
+  height: 24px;
+}
+#todo-list span:first-child {
+  margin-right: 5px;
+}
+#todo-list span:last-child {
+  position: absolute;
+  bottom: 2px;
+}
+#todo-list span:last-child:hover {
+  cursor: pointer;
+}
+#todo-list {
+  min-height: 100px;
+}
+
+@media (min-width: 577px) {
+  .container {
+    min-width: 500px;
+    width: 40vw;
+    max-width: 560px;
+  }
 }
