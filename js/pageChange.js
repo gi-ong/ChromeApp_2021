@@ -7,10 +7,10 @@ function rotatePage() {
   pageWrap.classList.toggle("rotate-page");
   if (pageWrap.classList.contains("rotate-page")) {
     pageTwo.style.opacity = "1";
-    pageOne.style.opacity = "0.3";
+    pageOne.style.opacity = "0.2";
   } else {
     pageOne.style.opacity = "1";
-    pageTwo.style.opacity = "0.3";
+    pageTwo.style.opacity = "0.2";
   }
 }
 
