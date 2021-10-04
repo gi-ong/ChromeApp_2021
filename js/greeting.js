@@ -7,6 +7,11 @@ const logOutBtn = greeting.querySelector(".clear-btn");
 const HIDDEN_CLASSNAME = "hidden";
 const USERNAME_KEY = "username";
 
+function blink() {
+  helloUser.classList.toggle("active");
+}
+setInterval(blink, 500);
+
 function onLoginSubmit(e) {
   e.preventDefault();
   loginForm.classList.add(HIDDEN_CLASSNAME);
@@ -23,11 +28,27 @@ function logOutUser() {
   loginForm.classList.remove(HIDDEN_CLASSNAME);
 }
 
+function resetTyping() {
+  helloUser.innerText = "";
+  paintGreetings(savedUsername);
+}
+
 function paintGreetings(username) {
-  helloUser.innerText = `Hello ${username}`;
+  let helloUserArr = `Hello, ${username}`.split("");
   greeting.classList.remove(HIDDEN_CLASSNAME);
   logOutBtn.classList.remove(HIDDEN_CLASSNAME);
   logOutBtn.addEventListener("click", logOutUser);
+  function dynamic(arr) {
+    if (arr.length > 0) {
+      helloUser.innerText += arr.shift();
+      setTimeout(function () {
+        dynamic(arr);
+      }, 100);
+    } else {
+      setTimeout(resetTyping, 3000);
+    }
+  }
+  dynamic(helloUserArr);
 }
 
 const savedUsername = localStorage.getItem(USERNAME_KEY);

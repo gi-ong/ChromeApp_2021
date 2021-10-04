@@ -21,19 +21,11 @@ ul {
 .container {
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 55%;
   transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.3);
-  color: white;
-  min-height: 400px;
-  width: 90vw;
-  max-width: 550px;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
-    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
-  border-radius: 14px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  height: 500px;
+  width: 500px;
+  perspective: 1000px;
 }
 
 #clock {
@@ -54,32 +46,55 @@ input {
   padding: 4px 6px;
   border-radius: 5px;
 }
-
+input:focus {
+  outline: none;
+}
+input:focus::placeholder {
+  color: transparent;
+}
 #login-form input:last-child {
-  background-color: rgba(255, 255, 255, 0.5);
-  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  transition: all 0.5s ease-in-out;
   margin-left: 10px;
 }
-
+#login-form input:last-child:hover {
+  cursor: pointer;
+  color: black;
+  background-color: white;
+}
+#greeting {
+  position: relative;
+}
 #greeting,
 #login-form {
   height: 50px;
 }
 
+#greeting h1 {
+  position: relative;
+  display: inline-block;
+}
+#greeting h1::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: -10px;
+  width: 4px;
+  height: 100%;
+  background-color: white;
+}
+#greeting h1.active::after {
+  display: none;
+}
+
 .clear-btn {
-  display: center;
-  justify-content: center;
-  /* position: absolute; */
-  /* right: -50px; */
-  /* top: 14px; */
-  max-width: 100px;
-  height: 20px;
-  border: 1px solid;
-  border-radius: 5px;
-  padding: 0 5px;
   background-color: rgba(0, 0, 0, 0.3);
-  font-size: 12px;
-  line-height: 20px;
+  color: white;
+  position: absolute;
+  right: -80px;
+  top: 10px;
   transition: all 0.5s ease-in-out;
 }
 .clear-btn:hover {
@@ -91,7 +106,7 @@ input {
 #quote {
   /* position: absolute; */
   bottom: 2vh;
-  padding: 0 10vw;
+  width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -100,6 +115,9 @@ input {
 #quote {
   margin: 15px 0 10px 0;
 }
+#quote span:first-child {
+  padding: 0 10px;
+}
 #quote span:last-child {
   margin-top: 5px;
 }
@@ -107,22 +125,29 @@ input {
 #todo-form {
   margin: 20px 0 10px 0;
 }
-#todo-list li {
+.list li {
   position: relative;
   height: 24px;
 }
-#todo-list span:first-child {
+.list span:first-child {
   margin-right: 5px;
 }
-#todo-list span:last-child {
+.list span:last-child {
   position: absolute;
   bottom: 2px;
 }
-#todo-list span:last-child:hover {
+.list span:last-child:hover {
   cursor: pointer;
 }
-#todo-list {
+.todo-wrap {
   min-height: 100px;
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+}
+.line {
+  text-decoration: line-through;
+  opacity: 0.5;
 }
 
 @media (min-width: 577px) {
@@ -131,4 +156,65 @@ input {
     width: 40vw;
     max-width: 560px;
   }
+  #quote {
+    width: 50%;
+  }
+}
+
+/* 3D-CSS  */
+
+.container-3d {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, -50%);
+}
+
+.flip-btn {
+  transform-style: preserve-3d;
+  transition: all 1s ease-in-out;
+  /* transform: rotateX(10deg); */
+}
+
+.front {
+  background-color: goldenrod;
+  height: 100px;
+  opacity: 0.9;
+}
+
+.back {
+  background-color: darkgoldenrod;
+  opacity: 0.9;
+  height: 100px;
+}
+.change-page-icon {
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  z-index: 99;
+}
+.change-page-icon:hover {
+  cursor: pointer;
+}
+.rotate-page {
+  transform: rotateX(90deg) translateZ(500px);
+}
+
+.page-one {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* transform: rotateX(50deg); */
+}
+.page-two {
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  border-radius: 14px;
+  height: 500px;
+  transform: rotateX(-90deg) translateZ(-250px) translateY(250px);
 }

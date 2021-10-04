@@ -12,7 +12,20 @@
     <title>gi-on Momentum App</title>
   </head>
   <body>
+    <div class="container-3d">
+      <!-- <div class="flip-btn">
+        <div class="front">front</div>
+        <div class="back">back</div>
+      </div> -->
+    </div>
     <div class="container">
+        <span class="material-icons change-page-icon">
+            published_with_changes
+            </span>   
+      <div class="flip-btn">
+
+        <div class="page-one">
+ 
       <h2 id="clock">00:00</h2>
       <div id="weather"><span></span><span></span></div>
       <form id="login-form" class="hidden">
@@ -27,7 +40,7 @@
 
       <form id="greeting" class="hidden">
         <h1></h1>
-        <span class="clear-btn">Clear</span>
+        <input type="submit" value="Clear" class="clear-btn"></input>
       </form>
       <form id="todo-form">
         <input
@@ -36,15 +49,22 @@
           required
         />
       </form>
-
-      <ul id="todo-list"></ul>
+      <div class="todo-wrap">
+      <ul class="list" id="todo-list"><p>진행중</p></ul>
+      <ul class="list" id="completed-list"><p>완료</p></ul>
+      </div>
       <div id="quote"><span></span><span></span></div>
     </div>
+    <div class="page-two">hi</div>
+    </div>
+    </div>
+    
     <script src="js/greeting.js"></script>
     <script src="js/clock.js"></script>
     <script src="js/quotes.js"></script>
     <script src="js/background.js"></script>
     <script src="js/todo.js"></script>
     <script src="js/weather.js"></script>
+    <script src="js/pageChange.js"></script>
   </body>
 </html>
